@@ -299,6 +299,16 @@ const mobileMenuStyles = `
         .nav-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
+        
+        .language-switcher {
+            margin-left: 0;
+            padding-left: 0;
+            border-left: none;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            justify-content: center;
+        }
     }
 `;
 

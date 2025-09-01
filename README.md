@@ -1,82 +1,84 @@
+[🇷🇺](ru/README.md)
+
 # B4DCATs — Underground Developer Community
 
 ![B4DCATs](https://img.shields.io/badge/B4DCATs-Underground%20Community-00ff41?style=for-the-badge&logo=terminal&logoColor=black)
 ![CLI-First](https://img.shields.io/badge/CLI--First-Approach-ff006e?style=for-the-badge)
 ![Open Source](https://img.shields.io/badge/Open%20Source-Philosophy-00d4ff?style=for-the-badge)
 
-> Сообщество разработчиков, создающих независимые инструменты для цифровой инфраструктуры
+> Community of developers creating independent tools for digital infrastructure
 
-## 🖤 О проекте
+## 🖤 About the Project
 
-B4DCATs — это underground-сообщество разработчиков, которые ценят простоту, контроль и хакерскую эстетику. Мы создаем CLI-first инструменты для цифровой инфраструктуры, следуя принципам минимализма и независимости от корпораций.
+B4DCATs is an underground community of developers who value simplicity, control, and hacker aesthetics. We create CLI-first tools for digital infrastructure, following the principles of minimalism and independence from corporations.
 
-### Основные принципы
+### Core Principles
 
-- **⚡ Минимализм** — простые и понятные инструменты
-- **🦅 Свобода** — независимость от корпораций
-- **💻 CLI-first** — терминал как основа
-- **🖤 Underground vibes** — хакерская эстетика
-- **👥 Community-driven** — сообщество решает направление
-- **🔓 Open Source** — полная прозрачность
+- **⚡ Minimalism** — simple and understandable tools
+- **🦅 Freedom** — independence from corporations
+- **💻 CLI-first** — terminal as the foundation
+- **🖤 Underground vibes** — hacker aesthetics
+- **👥 Community-driven** — community decides the direction
+- **🔓 Open Source** — full transparency
 
-## 🚀 Планируемые проекты
+## 🚀 Planned Projects
 
 ### b4d-chat
-IRC + CLI чат с мостами в Telegram/Discord
-- Объединение классических и современных платформ
-- CLI-интерфейс для всех каналов
-- Мосты между IRC, Telegram, Discord
+IRC + CLI chat with bridges to Telegram/Discord
+- Uniting classic and modern platforms
+- CLI interface for all channels
+- Bridges between IRC, Telegram, Discord
 
 ### b4d-utils
-Набор утилит для мониторинга и управления
-- Мониторинг систем и сервисов
-- Управление инфраструктурой
-- Unix-философия: одна утилита — одна задача
+Set of utilities for monitoring and management
+- System and service monitoring
+- Infrastructure management
+- Unix philosophy: one utility — one task
 
 ### b4d-infra
-Инфраструктурные решения
-- Развертывание сервисов
-- Автоматизация процессов
-- Простота и надежность
+Infrastructure solutions
+- Service deployment
+- Process automation
+- Simplicity and reliability
 
-## 🎯 Целевая аудитория
+## 🎯 Target Audience
 
-- Разработчики, которые ценят простоту и контроль
-- DevOps инженеры
-- Энтузиасты open source
-- Люди, которым близка underground-культура
+- Developers who value simplicity and control
+- DevOps engineers
+- Open source enthusiasts
+- People who appreciate underground culture
 
 ## 🌐 Landing Page
 
-Этот репозиторий содержит landing page для сообщества B4DCATs с современным дизайном и underground-эстетикой.
+This repository contains the landing page for the B4DCATs community with modern design and underground aesthetics.
 
-### Особенности
+### Features
 
-- **Underground дизайн** — темная тема с неоновыми акцентами
-- **CLI-эстетика** — терминальный стиль элементов
-- **Адаптивность** — оптимизация для всех устройств
-- **Анимации** — плавные переходы и эффекты
-- **Производительность** — быстрая загрузка
+- **Underground design** — dark theme with neon accents
+- **CLI aesthetics** — terminal-style elements
+- **Responsive** — optimized for all devices
+- **Animations** — smooth transitions and effects
+- **Performance** — fast loading
 
-### Технологии
+### Technologies
 
 - HTML5 + CSS3 + JavaScript
-- Современные CSS Grid/Flexbox
+- Modern CSS Grid/Flexbox
 - Intersection Observer API
-- Плавные анимации
-- Оптимизация для мобильных устройств
+- Smooth animations
+- Mobile optimization
 
-## 📦 Установка и запуск
+## 📦 Installation and Setup
 
-### Локальная разработка
+### Local Development
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
 ```bash
 git clone https://github.com/b4dcats/b4dcats.github.io.git
 cd b4dcats.github.io
 ```
 
-2. Откройте `index.html` в браузере или используйте локальный сервер:
+2. Open `index.html` in a browser or use a local server:
 ```bash
 # Python 3
 python -m http.server 8000
@@ -88,63 +90,63 @@ npx serve .
 php -S localhost:8000
 ```
 
-3. Откройте http://localhost:8000 в браузере
+3. Open http://localhost:8000 in your browser
 
-### Развертывание на GitHub Pages
+### Deployment on GitHub Pages
 
-1. Убедитесь, что репозиторий называется `b4dcats.github.io`
-2. Перейдите в Settings → Pages
-3. Выберите Source: Deploy from a branch
-4. Выберите branch: main
-5. Нажмите Save
+1. Make sure the repository is named `b4dcats.github.io`
+2. Go to Settings → Pages
+3. Select Source: Deploy from a branch
+4. Select branch: main
+5. Click Save
 
-Сайт будет доступен по адресу: https://b4dcats.github.io
+The site will be available at: https://b4dcats.github.io
 
-## 🎨 Кастомизация
+## 🎨 Customization
 
-### Цветовая схема
+### Color Scheme
 
-Основные цвета определены в CSS переменных:
+Main colors are defined in CSS variables:
 
 ```css
 :root {
-  --accent-primary: #00ff41;    /* Неоновый зеленый */
-  --accent-secondary: #ff006e;  /* Неоновый розовый */
-  --accent-tertiary: #00d4ff;   /* Неоновый голубой */
-  --bg-primary: #0a0a0a;        /* Основной фон */
-  --bg-secondary: #111111;      /* Вторичный фон */
+  --accent-primary: #00ff41;    /* Neon green */
+  --accent-secondary: #ff006e;  /* Neon pink */
+  --accent-tertiary: #00d4ff;   /* Neon blue */
+  --bg-primary: #0a0a0a;        /* Main background */
+  --bg-secondary: #111111;      /* Secondary background */
 }
 ```
 
-### Шрифты
+### Fonts
 
-- **JetBrains Mono** — для терминальных элементов
-- **Inter** — для основного текста
+- **JetBrains Mono** — for terminal elements
+- **Inter** — for main text
 
-## 🤝 Участие в проекте
+## 🤝 Contributing
 
-Мы приветствуем любой вклад в развитие сообщества!
+We welcome any contribution to the community development!
 
-### Как присоединиться
+### How to Join
 
-1. **Присоединитесь к чату** — [Telegram](https://t.me/b4dcats)
-2. **Изучите документацию** — следите за обновлениями
-3. **Внесите вклад** — создавайте issues и pull requests
+1. **Join the chat** — [Telegram](https://t.me/b4dcats)
+2. **Read documentation** — follow updates
+3. **Contribute** — create issues and pull requests
 
-### Контакты
+### Contacts
 
 - **GitHub**: [github.com/b4dcats](https://github.com/b4dcats)
 - **Telegram**: [@b4dcats](https://t.me/b4dcats)
-- **Discord**: [discord.gg/b4dcats](https://discord.gg/b4dcats)
-- **Email**: hello@b4dcats.dev
+- **Discord**: [discord.gg/b4dcats](https://discord.gg/MHEpQ5j3tP)
+- **Email**: dev@b4dcat.ru
 
-## 📄 Лицензия
+## 📄 License
 
-Этот проект распространяется под лицензией MIT. См. файл [LICENSE](LICENSE) для подробностей.
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 🖤 Поддержка
+## 🖤 Support
 
-Если вам нравится проект, поставьте звезду ⭐ на GitHub и поделитесь с друзьями!
+If you like the project, give it a star ⭐ on GitHub and share with friends!
 
 ---
 

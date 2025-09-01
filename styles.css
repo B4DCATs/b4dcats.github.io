@@ -159,6 +159,38 @@ p {
     width: 100%;
 }
 
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    font-family: var(--font-mono);
+}
+
+.lang-link:hover {
+    color: var(--accent-primary);
+}
+
+.lang-link.active {
+    color: var(--accent-primary);
+}
+
+.lang-separator {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
