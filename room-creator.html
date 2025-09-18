@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Creator — B4DCATs</title>
+    <meta name="description" content="Discord bot for automatic creation of temporary voice channels with interactive management panel. Open source Python bot with modern features.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#join" class="nav-link">Join</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <div class="language-switcher">
+                    <a href="ru/" class="lang-link">RU</a>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-link active">EN</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">RELEASED</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Room Creator</span>
+                    <span class="title-subtitle">Discord Voice Channel Bot</span>
+                </h1>
+                <p class="hero-description">
+                    Discord bot for automatic creation of temporary voice channels with interactive management panel. 
+                    <span class="highlight">Python-powered</span>, <span class="highlight">open source</span>, 
+                    <span class="highlight">modern features</span>.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1418296414579982356&permissions=2167490640&integration_type=0&scope=bot+applications.commands" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-text">Add to Server</span>
+                        <span class="btn-icon">🤖</span>
+                    </a>
+                    <a href="https://github.com/b4dcats/room-creator" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <span class="btn-text">View Source</span>
+                        <span class="btn-icon">💻</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">room-creator@bot:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git clone https://github.com/b4dcats/room-creator</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Cloning into 'room-creator'...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cd room-creator && pip install -r requirements.txt</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Installing dependencies...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">python run.py</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✅ Room Creator Bot is online!</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Powerful automation for Discord voice channels</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Auto Creation</h3>
+                    <p class="feature-description">Automatically creates new voice channels when users join the lobby</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🎛️</div>
+                    <h3 class="feature-title">Interactive Panel</h3>
+                    <p class="feature-description">Rich control panel with buttons for room management</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">👑</div>
+                    <h3 class="feature-title">Ownership System</h3>
+                    <p class="feature-description">Room creators get full control and can transfer ownership</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Room Locking</h3>
+                    <p class="feature-description">Lock rooms to prevent unwanted users from joining</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">User Limits</h3>
+                    <p class="feature-description">Set custom user limits for each room</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">🧹</div>
+                    <h3 class="feature-title">Auto Cleanup</h3>
+                    <p class="feature-description">Rooms are automatically deleted when empty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section class="installation" id="installation">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Installation</h2>
+                <p class="section-subtitle">Get started with Room Creator in minutes</p>
+            </div>
+            <div class="installation-content">
+                <div class="installation-steps">
+                    <div class="step-card" data-aos="fade-up">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Clone Repository</h3>
+                        <div class="step-code">
+                            <code>git clone https://github.com/b4dcats/room-creator</code>
+                        </div>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Install Dependencies</h3>
+                        <div class="step-code">
+                            <code>pip install -r requirements.txt</code>
+                        </div>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Configure Environment</h3>
+                        <div class="step-code">
+                            <code>cp .env.example .env</code><br>
+                            <code># Edit .env with your Discord token</code>
+                        </div>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Run Bot</h3>
+                        <div class="step-code">
+                            <code>python run.py</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="installation-docker">
+                    <h3 class="docker-title">Docker Installation</h3>
+                    <p class="docker-description">For easier deployment and management</p>
+                    <div class="docker-code">
+                        <code>docker-compose up --build -d</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section class="commands" id="commands">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Commands</h2>
+                <p class="section-subtitle">Available slash commands and features</p>
+            </div>
+            <div class="commands-grid">
+                <div class="command-category">
+                    <h3 class="category-title">Administrative</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code class="command-name">/setup-lobby &lt;channel&gt;</code>
+                            <p class="command-description">Configure the lobby channel for room creation</p>
+                        </div>
+                        <div class="command-item">
+                            <code class="command-name">/status</code>
+                            <p class="command-description">Show bot status and current settings</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3 class="category-title">Room Management</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code class="command-name">/room-info</code>
+                            <p class="command-description">Display information about current room</p>
+                        </div>
+                        <div class="command-item">
+                            <code class="command-name">/room-transfer &lt;user&gt;</code>
+                            <p class="command-description">Transfer room ownership to another user</p>
+                        </div>
+                        <div class="command-item">
+                            <code class="command-name">/room-close</code>
+                            <p class="command-description">Close the current room (owner only)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Panel Section -->
+    <section class="panel-demo" id="panel">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Panel</h2>
+                <p class="section-subtitle">Rich control interface for room management</p>
+            </div>
+            <div class="panel-demo-content">
+                <div class="panel-preview">
+                    <div class="panel-card">
+                        <h3 class="panel-title">Room Controls</h3>
+                        <div class="panel-buttons">
+                            <button class="panel-btn">
+                                <span class="btn-icon">👥</span>
+                                <span class="btn-text">User Limit</span>
+                            </button>
+                            <button class="panel-btn">
+                                <span class="btn-icon">📝</span>
+                                <span class="btn-text">Rename</span>
+                            </button>
+                            <button class="panel-btn">
+                                <span class="btn-icon">👑</span>
+                                <span class="btn-text">Transfer</span>
+                            </button>
+                            <button class="panel-btn">
+                                <span class="btn-icon">🔒</span>
+                                <span class="btn-text">Lock Room</span>
+                            </button>
+                            <button class="panel-btn danger">
+                                <span class="btn-icon">❌</span>
+                                <span class="btn-text">Close Room</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">👥</span>
+                        <div class="feature-content">
+                            <h4>User Limit</h4>
+                            <p>Set custom participant limits for your room</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📝</span>
+                        <div class="feature-content">
+                            <h4>Rename Room</h4>
+                            <p>Change room name to anything you want</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👑</span>
+                        <div class="feature-content">
+                            <h4>Transfer Ownership</h4>
+                            <p>Pass room control to another member</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <div class="feature-content">
+                            <h4>Lock Room</h4>
+                            <p>Prevent new users from joining</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Underground developer community</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Community</h4>
+                        <a href="index.html#about" class="footer-link">About</a>
+                        <a href="index.html#projects" class="footer-link">Projects</a>
+                        <a href="index.html#join" class="footer-link">Join</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="#" class="footer-link">Documentation</a>
+                        <a href="https://github.com/b4dcats" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="#" class="footer-link">Blog</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <a href="index.html#contact" class="footer-link">Get in Touch</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Made with ❤️ by the community.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
