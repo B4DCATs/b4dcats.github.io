@@ -1796,4 +1796,255 @@ section {
     .legal-list li::before {
         left: -1.25rem;
     }
+}
+
+/* Battle Cup Page Styles */
+.architecture {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-secondary);
+}
+
+.architecture-content {
+    margin-top: var(--spacing-2xl);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.service-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: var(--transition-normal);
+}
+
+.service-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.service-title {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.service-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    justify-content: center;
+}
+
+.tech-tag {
+    background: var(--bg-primary);
+    color: var(--accent-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    border: 1px solid var(--bg-secondary);
+}
+
+/* Phases Section */
+.phases {
+    padding: var(--spacing-3xl) 0;
+}
+
+.phases-timeline {
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+}
+
+.phase-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xl);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: var(--transition-normal);
+}
+
+.phase-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateX(8px);
+}
+
+.phase-number {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.phase-content {
+    flex: 1;
+}
+
+.phase-title {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.phase-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.phase-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.phase-status.completed {
+    background: rgba(0, 255, 65, 0.1);
+    color: var(--accent-primary);
+}
+
+.phase-status.in-progress {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--accent-tertiary);
+}
+
+.phase-status.planned {
+    background: rgba(255, 170, 0, 0.1);
+    color: var(--accent-warning);
+}
+
+.phase-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.phase-features li {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.phase-features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+}
+
+/* Production Setup */
+.production-setup {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+}
+
+.setup-title {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.setup-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.setup-code {
+    background: var(--bg-primary);
+    border: 1px solid var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+    overflow-x: auto;
+}
+
+.setup-access {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+/* Responsive Design for Battle Cup Page */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .phase-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+    
+    .phase-item:hover {
+        transform: translateY(-4px);
+    }
+    
+    .setup-access {
+        align-items: stretch;
+    }
+    
+    .access-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
 } 

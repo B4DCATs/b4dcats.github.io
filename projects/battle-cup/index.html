@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Cup — B4DCATs</title>
+    <meta name="description" content="Comprehensive platform for organizing and preparing Dota 2 teams for tournaments with Steam, Discord and Telegram integration.">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link">About</a>
+                <a href="../../index.html#projects" class="nav-link">Projects</a>
+                <a href="../../index.html#join" class="nav-link">Join</a>
+                <a href="../../index.html#contact" class="nav-link">Contact</a>
+                <div class="language-switcher">
+                    <a href="../../ru/projects/battle-cup/" class="lang-link">RU</a>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-link active">EN</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">IN DEVELOPMENT</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Battle Cup</span>
+                    <span class="title-subtitle">Dota 2 Team Platform</span>
+                </h1>
+                <p class="hero-description">
+                    Comprehensive platform for organizing and preparing Dota 2 teams for tournaments with 
+                    <span class="highlight">Steam integration</span>, <span class="highlight">Discord bots</span>, 
+                    and <span class="highlight">Telegram notifications</span>.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/battle-cup-org" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-text">View on GitHub</span>
+                        <span class="btn-icon">💻</span>
+                    </a>
+                    <a href="#architecture" class="btn btn-secondary">
+                        <span class="btn-text">Architecture</span>
+                        <span class="btn-icon">🏗️</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">battle-cup@api:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git clone https://github.com/battle-cup-org/battle-cup-api</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Cloning into 'battle-cup-api'...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cd battle-cup-api && docker-compose up</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">🚀 Starting Battle Cup API...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✅ API running on http://localhost:8000</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Complete Dota 2 team management platform</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Team Management</h3>
+                    <p class="feature-description">Create and manage teams with member roles, invitations, and permissions</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">📅</div>
+                    <h3 class="feature-title">Practice Scheduling</h3>
+                    <p class="feature-description">Organize training sessions with automatic reminders and notifications</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Pick Plans</h3>
+                    <p class="feature-description">Create and manage hero pick strategies with detailed plans</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Tournaments</h3>
+                    <p class="feature-description">Participate in tournaments with ELO rating system and statistics</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">Steam Integration</h3>
+                    <p class="feature-description">Authenticate with Steam OpenID and sync player data</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Multi-Platform</h3>
+                    <p class="feature-description">Discord and Telegram bots for notifications and voice channel management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Architecture</h2>
+                <p class="section-subtitle">Microservices-based platform</p>
+            </div>
+            <div class="architecture-content">
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up">
+                        <div class="service-icon">🔧</div>
+                        <h3 class="service-title">Battle Cup API</h3>
+                        <p class="service-description">Core FastAPI backend with PostgreSQL and Redis</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">🎨</div>
+                        <h3 class="service-title">Frontend</h3>
+                        <p class="service-description">Modern React/Next.js web application</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title">Telegram Bot</h3>
+                        <p class="service-description">Notifications and team management via Telegram</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">aiogram 3.x</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">💬</div>
+                        <h3 class="service-title">Discord Bot</h3>
+                        <p class="service-description">Voice channel management and team coordination</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">discord.py 2.x</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">📊</div>
+                        <h3 class="service-title">Infrastructure</h3>
+                        <p class="service-description">Docker, monitoring, and deployment automation</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-icon">📚</div>
+                        <h3 class="service-title">Shared Libraries</h3>
+                        <p class="service-description">Common utilities and data models</p>
+                        <div class="service-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Phases Section -->
+    <section class="phases" id="phases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Development Phases</h2>
+                <p class="section-subtitle">Roadmap and current progress</p>
+            </div>
+            <div class="phases-timeline">
+                <div class="phase-item" data-aos="fade-up">
+                    <div class="phase-number">1</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">MVP (4-6 weeks)</h3>
+                        <p class="phase-description">Basic API with Steam authentication, team management, and practice scheduling</p>
+                        <div class="phase-status completed">
+                            <span class="status-icon">✅</span>
+                            <span class="status-text">Completed</span>
+                        </div>
+                        <ul class="phase-features">
+                            <li>✅ Steam OpenID authentication</li>
+                            <li>✅ Team and member management</li>
+                            <li>✅ Practice scheduling</li>
+                            <li>✅ Telegram bot notifications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="phase-number">2</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Discord Integration (2-3 weeks)</h3>
+                        <p class="phase-description">Discord bot with voice channels and enhanced notifications</p>
+                        <div class="phase-status in-progress">
+                            <span class="status-icon">🔄</span>
+                            <span class="status-text">In Progress</span>
+                        </div>
+                        <ul class="phase-features">
+                            <li>🔄 Discord bot development</li>
+                            <li>🔄 Voice channel management</li>
+                            <li>🔄 WebSocket real-time updates</li>
+                            <li>⏳ Enhanced notifications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="phase-number">3</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Pick Plans (3-4 weeks)</h3>
+                        <p class="phase-description">Hero pick planning system with analytics dashboard</p>
+                        <div class="phase-status planned">
+                            <span class="status-icon">⏳</span>
+                            <span class="status-text">Planned</span>
+                        </div>
+                        <ul class="phase-features">
+                            <li>⏳ Pick plan creation</li>
+                            <li>⏳ Analytics dashboard</li>
+                            <li>⏳ Hero database integration</li>
+                            <li>⏳ Strategy templates</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="phase-number">4</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Tournaments (3-4 weeks)</h3>
+                        <p class="phase-description">Tournament system with ELO ratings and admin panel</p>
+                        <div class="phase-status planned">
+                            <span class="status-icon">⏳</span>
+                            <span class="status-text">Planned</span>
+                        </div>
+                        <ul class="phase-features">
+                            <li>⏳ Tournament creation</li>
+                            <li>⏳ ELO rating system</li>
+                            <li>⏳ Admin panel</li>
+                            <li>⏳ Match statistics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="phase-number">5</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Production (2-3 weeks)</h3>
+                        <p class="phase-description">Performance optimization, monitoring, and CI/CD</p>
+                        <div class="phase-status planned">
+                            <span class="status-icon">⏳</span>
+                            <span class="status-text">Planned</span>
+                        </div>
+                        <ul class="phase-features">
+                            <li>⏳ Performance optimization</li>
+                            <li>⏳ Monitoring and logging</li>
+                            <li>⏳ CI/CD pipeline</li>
+                            <li>⏳ Security hardening</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="quick-start" id="quick-start">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick Start</h2>
+                <p class="section-subtitle">Get Battle Cup running locally</p>
+            </div>
+            <div class="quick-start-content">
+                <div class="start-methods">
+                    <div class="method-card" data-aos="fade-up">
+                        <div class="method-icon">🚀</div>
+                        <h3 class="method-title">Development Setup</h3>
+                        <p class="method-description">Run API and database locally</p>
+                        <div class="method-code">
+                            <code>git clone https://github.com/battle-cup-org/battle-cup-api</code><br>
+                            <code>cd battle-cup-api</code><br>
+                            <code>docker-compose up</code>
+                        </div>
+                        <div class="method-result">
+                            <span class="result-text">✅ API running on http://localhost:8000</span>
+                        </div>
+                    </div>
+                    <div class="method-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="method-icon">🎨</div>
+                        <h3 class="method-title">Frontend Development</h3>
+                        <p class="method-description">Run the web application</p>
+                        <div class="method-code">
+                            <code>git clone https://github.com/battle-cup-org/battle-cup-frontend</code><br>
+                            <code>cd battle-cup-frontend</code><br>
+                            <code>npm install && npm run dev</code>
+                        </div>
+                        <div class="method-result">
+                            <span class="result-text">✅ Frontend running on http://localhost:3000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="production-setup">
+                    <h3 class="setup-title">Production Deployment</h3>
+                    <p class="setup-description">Deploy the complete platform</p>
+                    <div class="setup-code">
+                        <code>git clone https://github.com/battle-cup-org/battle-cup-infrastructure</code><br>
+                        <code>cd battle-cup-infrastructure/docker-compose</code><br>
+                        <code>docker-compose -f docker-compose.prod.yml up</code>
+                    </div>
+                    <div class="setup-access">
+                        <div class="access-item">
+                            <span class="access-label">API:</span>
+                            <span class="access-url">http://localhost:8000</span>
+                        </div>
+                        <div class="access-item">
+                            <span class="access-label">Frontend:</span>
+                            <span class="access-url">http://localhost:3000</span>
+                        </div>
+                        <div class="access-item">
+                            <span class="access-label">Docs:</span>
+                            <span class="access-url">http://localhost:8000/docs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Underground developer community</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Community</h4>
+                        <a href="../../index.html#about" class="footer-link">About</a>
+                        <a href="../../index.html#projects" class="footer-link">Projects</a>
+                        <a href="../../index.html#join" class="footer-link">Join</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="https://github.com/battle-cup-org" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/battle-cup-org/battle-cup-docs" class="footer-link" target="_blank" rel="noopener">Documentation</a>
+                        <a href="#" class="footer-link">Blog</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <a href="../../index.html#contact" class="footer-link">Get in Touch</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Made with ❤️ by the community.
+                </div>
+                <div class="footer-legal">
+                    <a href="../../privacy.html" class="footer-link">Privacy</a>
+                    <a href="../../terms.html" class="footer-link">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
