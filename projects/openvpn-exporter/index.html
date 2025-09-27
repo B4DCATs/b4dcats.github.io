@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenVPN Exporter — B4DCATs</title>
+    <meta name="description" content="Prometheus exporter for OpenVPN server monitoring with Grafana dashboards, security features, and comprehensive metrics collection.">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link">About</a>
+                <a href="../../index.html#projects" class="nav-link">Projects</a>
+                <a href="../../index.html#join" class="nav-link">Join</a>
+                <a href="../../index.html#contact" class="nav-link">Contact</a>
+                <div class="language-switcher">
+                    <a href="../openvpn-exporter/" class="lang-link">RU</a>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-link active">EN</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">RELEASED</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">OpenVPN Exporter</span>
+                    <span class="title-subtitle">Prometheus Monitoring</span>
+                </h1>
+                <p class="hero-description">
+                    Professional Prometheus exporter for OpenVPN server monitoring with 
+                    <span class="highlight">Grafana dashboards</span>, <span class="highlight">security features</span>, 
+                    and <span class="highlight">comprehensive metrics</span>.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/b4dcats/openvpn_exporter" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-text">View on GitHub</span>
+                        <span class="btn-icon">💻</span>
+                    </a>
+                    <a href="#quick-start" class="btn btn-secondary">
+                        <span class="btn-text">Quick Start</span>
+                        <span class="btn-icon">🚀</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">openvpn-exporter@monitoring:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">curl -sSL https://raw.githubusercontent.com/B4DCATs/openvpn_exporter/main/quick-start.sh | bash</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">🚀 Starting OpenVPN Exporter setup...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">📊 Metrics available at: http://localhost:9176/metrics</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">docker ps</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✅ openvpn-exporter is running!</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <section class="dashboard-preview" id="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dashboard Preview</h2>
+                <p class="section-subtitle">Professional monitoring with Grafana</p>
+            </div>
+            <div class="dashboard-container">
+                <div class="dashboard-screenshot">
+                    <img src="https://raw.githubusercontent.com/b4dcats/openvpn_exporter/main/docs/openvpn-exporter.png" alt="OpenVPN Exporter Grafana Dashboard" class="dashboard-image">
+                    <div class="dashboard-overlay">
+                        <div class="overlay-content">
+                            <h3>Real-time Monitoring</h3>
+                            <p>Live OpenVPN server metrics and client statistics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Enterprise-grade monitoring capabilities</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Real-time Metrics</h3>
+                    <p class="feature-description">Monitor connected clients, traffic statistics, and server health in real-time</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Security Features</h3>
+                    <p class="feature-description">IP access control, rate limiting, and secure logging for production environments</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Grafana Dashboard</h3>
+                    <p class="feature-description">Pre-built professional dashboard with traffic trends and connection analytics</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">🐳</div>
+                    <h3 class="feature-title">Docker Ready</h3>
+                    <p class="feature-description">One-command deployment with Docker Compose and health checks</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Quick Start</h3>
+                    <p class="feature-description">Get monitoring up and running in seconds with automated setup scripts</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Multi-Server</h3>
+                    <p class="feature-description">Monitor multiple OpenVPN servers from a single exporter instance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="quick-start" id="quick-start">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick Start</h2>
+                <p class="section-subtitle">Get monitoring up and running in seconds</p>
+            </div>
+            <div class="quick-start-content">
+                <div class="start-methods">
+                    <div class="method-card" data-aos="fade-up">
+                        <div class="method-icon">🚀</div>
+                        <h3 class="method-title">One-Command Setup</h3>
+                        <p class="method-description">Automated installation and configuration</p>
+                        <div class="method-code">
+                            <code>curl -sSL https://raw.githubusercontent.com/B4DCATs/openvpn_exporter/main/quick-start.sh | bash</code>
+                        </div>
+                        <div class="method-result">
+                            <span class="result-text">✅ Metrics available at: http://localhost:9176/metrics</span>
+                        </div>
+                    </div>
+                    <div class="method-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="method-icon">🐳</div>
+                        <h3 class="method-title">Docker Compose</h3>
+                        <p class="method-description">Manual setup with Docker</p>
+                        <div class="method-code">
+                            <code>curl -O https://raw.githubusercontent.com/B4DCATs/openvpn_exporter/main/docker-compose.yml</code><br>
+                            <code>docker compose up -d</code>
+                        </div>
+                        <div class="method-result">
+                            <span class="result-text">✅ Container running on port 9176</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="monitoring-stack">
+                    <h3 class="stack-title">Complete Monitoring Stack</h3>
+                    <p class="stack-description">Run Prometheus + Grafana + OpenVPN Exporter together</p>
+                    <div class="stack-code">
+                        <code>curl -O https://raw.githubusercontent.com/B4DCATs/openvpn_exporter/main/examples/config/docker-compose.full.yml</code><br>
+                        <code>docker compose -f docker-compose.full.yml up -d</code>
+                    </div>
+                    <div class="stack-access">
+                        <div class="access-item">
+                            <span class="access-label">Prometheus:</span>
+                            <span class="access-url">http://localhost:9090</span>
+                        </div>
+                        <div class="access-item">
+                            <span class="access-label">Grafana:</span>
+                            <span class="access-url">http://localhost:3000</span>
+                        </div>
+                        <div class="access-item">
+                            <span class="access-label">Metrics:</span>
+                            <span class="access-url">http://localhost:9176/metrics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics" id="metrics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Metrics</h2>
+                <p class="section-subtitle">Comprehensive OpenVPN server monitoring</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-category">
+                    <h3 class="category-title">Server Metrics</h3>
+                    <div class="metric-list">
+                        <div class="metric-item">
+                            <code class="metric-name">openvpn_up</code>
+                            <p class="metric-description">OpenVPN server status (1=up, 0=down)</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">openvpn_server_client_count</code>
+                            <p class="metric-description">Number of connected clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-category">
+                    <h3 class="category-title">Client Metrics</h3>
+                    <div class="metric-list">
+                        <div class="metric-item">
+                            <code class="metric-name">openvpn_server_client_received_bytes_total</code>
+                            <p class="metric-description">Total bytes received per client</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">openvpn_server_client_sent_bytes_total</code>
+                            <p class="metric-description">Total bytes sent per client</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">openvpn_server_client_connection_time</code>
+                            <p class="metric-description">Client connection timestamp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example-queries">
+                <h3 class="queries-title">Example PromQL Queries</h3>
+                <div class="query-examples">
+                    <div class="query-item">
+                        <div class="query-label">Total connected clients:</div>
+                        <code class="query-code">sum(openvpn_server_client_count)</code>
+                    </div>
+                    <div class="query-item">
+                        <div class="query-label">Top 5 clients by traffic:</div>
+                        <code class="query-code">topk(5, openvpn_server_client_received_bytes_total + openvpn_server_client_sent_bytes_total)</code>
+                    </div>
+                    <div class="query-item">
+                        <div class="query-label">Client connection duration:</div>
+                        <code class="query-code">time() - openvpn_server_client_connection_time</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Security Features</h2>
+                <p class="section-subtitle">Production-ready security for enterprise environments</p>
+            </div>
+            <div class="security-features">
+                <div class="security-grid">
+                    <div class="security-item">
+                        <div class="security-icon">🛡️</div>
+                        <h3>IP Access Control</h3>
+                        <p>Restrict metrics access to specific IP addresses</p>
+                        <div class="security-example">
+                            <code>ALLOWED_IPS="192.168.1.100,10.0.0.50,monitoring-server.local"</code>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">⚡</div>
+                        <h3>Rate Limiting</h3>
+                        <p>Protection against abuse and DDoS attacks</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🔍</div>
+                        <h3>Input Validation</h3>
+                        <p>All inputs validated and sanitized</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🚫</div>
+                        <h3>Path Traversal Protection</h3>
+                        <p>Prevents directory traversal attacks</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">📝</div>
+                        <h3>Secure Logging</h3>
+                        <p>Structured logging with sensitive data protection</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">👤</div>
+                        <h3>Non-root Container</h3>
+                        <p>Runs as non-privileged user in Docker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Underground developer community</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Community</h4>
+                        <a href="../../index.html#about" class="footer-link">About</a>
+                        <a href="../../index.html#projects" class="footer-link">Projects</a>
+                        <a href="../../index.html#join" class="footer-link">Join</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="https://github.com/b4dcats/openvpn_exporter" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/b4dcats/openvpn_exporter/tree/main/docs" class="footer-link" target="_blank" rel="noopener">Documentation</a>
+                        <a href="#" class="footer-link">Blog</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <a href="../../index.html#contact" class="footer-link">Get in Touch</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Made with ❤️ by the community.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
