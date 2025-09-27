@@ -531,14 +531,50 @@ section {
 }
 
 .project-status {
-    background: rgba(255, 170, 0, 0.1);
-    color: var(--accent-warning);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* Status colors */
+.project-status[data-status="released"] {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    animation: pulse-green 2s ease-in-out infinite;
+}
+
+.project-status[data-status="planned"] {
+    background: rgba(255, 170, 0, 0.1);
+    color: var(--accent-warning);
+}
+
+.project-status[data-status="suspended"] {
+    background: rgba(255, 0, 64, 0.1);
+    color: var(--accent-error);
+}
+
+.project-status[data-status="in-development"] {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--accent-tertiary);
+}
+
+/* Fallback for old statuses */
+.project-status:not([data-status]) {
+    background: rgba(255, 170, 0, 0.1);
+    color: var(--accent-warning);
+}
+
+/* Pulse animation for released status */
+@keyframes pulse-green {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 255, 65, 0);
+    }
 }
 
 .project-title {
