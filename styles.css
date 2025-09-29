@@ -1185,15 +1185,17 @@ section {
 
 .panel-demo-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--spacing-2xl);
     margin-top: var(--spacing-2xl);
     align-items: start;
 }
 
 .panel-preview {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .panel-card {
@@ -1201,7 +1203,13 @@ section {
     border: 1px solid var(--bg-primary);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
-    min-width: 300px;
+    transition: var(--transition-normal);
+}
+
+.panel-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
 }
 
 .panel-title {
@@ -1211,6 +1219,22 @@ section {
     color: var(--text-primary);
     margin-bottom: var(--spacing-lg);
     text-align: center;
+}
+
+.panel-code {
+    background: var(--bg-secondary);
+    border: 1px solid var(--bg-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.2;
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-variant-ligatures: none;
 }
 
 .panel-buttons {
@@ -1250,8 +1274,8 @@ section {
 }
 
 .panel-features {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
 
@@ -1263,6 +1287,12 @@ section {
     background: var(--bg-tertiary);
     border: 1px solid var(--bg-primary);
     border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+}
+
+.feature-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateX(8px);
 }
 
 .feature-item .feature-icon {
@@ -1302,6 +1332,20 @@ section {
     .panel-demo-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
+    }
+    
+    .panel-preview {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .panel-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .panel-code {
+        font-size: 0.7rem;
+        padding: var(--spacing-sm);
     }
     
     .panel-buttons {
