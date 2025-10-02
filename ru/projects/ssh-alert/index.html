@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Alert — B4DCATs</title>
+    <meta name="description" content="Безопасный мониторинг SSH подключений с уведомлениями в Telegram. Максимальная идентификация пользователей, гибкие уведомления и надежные меры безопасности.">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link">О нас</a>
+                <a href="../../index.html#projects" class="nav-link">Проекты</a>
+                <a href="../../index.html#join" class="nav-link">Присоединиться</a>
+                <a href="../../index.html#contact" class="nav-link">Контакты</a>
+                <div class="language-switcher">
+                    <span class="lang-link active">RU</span>
+                    <span class="lang-separator">|</span>
+                    <a href="../../../projects/ssh-alert/" class="lang-link">EN</a>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">ВЫПУЩЕН</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">SSH Alert</span>
+                    <span class="title-subtitle">Безопасный SSH Мониторинг</span>
+                </h1>
+                <p class="hero-description">
+                    Безопасная и надежная утилита для мониторинга SSH подключений к серверу с 
+                    <span class="highlight">уведомлениями в Telegram</span>, <span class="highlight">максимальной идентификацией пользователей</span>, 
+                    и <span class="highlight">надежными мерами безопасности</span>.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/B4DCATs/ssh-login-alert" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-text">GitHub</span>
+                        <span class="btn-icon">💻</span>
+                    </a>
+                    <a href="#quick-start" class="btn btn-secondary">
+                        <span class="btn-text">Быстрый старт</span>
+                        <span class="btn-icon">🚀</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">ssh-alert@server:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">sudo ./install.sh</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">🚀 Запуск настройки SSH Alert...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">📊 SSH Alert настроен и запущен!</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">sudo tail -f /var/log/ssh-alert.log</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✅ SSH Alert мониторинг активен</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Preview Section -->
+    <section class="dashboard-preview" id="notifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Предварительный просмотр уведомлений</h2>
+                <p class="section-subtitle">Уведомления о SSH подключениях в реальном времени</p>
+            </div>
+            <div class="dashboard-container">
+                <div class="dashboard-screenshot">
+                    <div class="notification-demo">
+                        <div class="notification-header">
+                            <span class="notification-icon">🔐</span>
+                            <span class="notification-title">SSH Login Alert</span>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-field">
+                                <span class="field-label">Host IP:</span>
+                                <span class="field-value">203.0.113.1 / 192.168.1.100</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Host:</span>
+                                <span class="field-value">server01.example.com</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Person:</span>
+                                <span class="field-value">alice@example.com</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">IP:</span>
+                                <span class="field-value">198.51.100.50</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Type:</span>
+                                <span class="field-value">Interactive shell</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Key:</span>
+                                <span class="field-value">SHA256:abcd1234...</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Time:</span>
+                                <span class="field-value">2024-01-15 14:30:25 UTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-overlay">
+                        <div class="overlay-content">
+                            <h3>Мгновенные уведомления</h3>
+                            <p>Мониторинг SSH подключений в реальном времени с подробной идентификацией пользователей</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Возможности</h2>
+                <p class="section-subtitle">Мониторинг безопасности SSH корпоративного уровня</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Максимальная идентификация</h3>
+                    <p class="feature-description">Идентифицирует пользователей по IP-адресу, отпечатку ключа, комментарию ключа и типу подключения</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Гибкие уведомления</h3>
+                    <p class="feature-description">Отдельные звуковые и тихие сообщения для разных типов подключений с интеграцией Telegram</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Надежность и безопасность</h3>
+                    <p class="feature-description">Предотвращает дублирование уведомлений и включает логику повторных попыток при сбоях сети</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">⚙️</div>
+                    <h3 class="feature-title">Гибкая настройка</h3>
+                    <p class="feature-description">Простая настройка через файл конфигурации с поддержкой исключений и ограничения скорости</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Ограничение скорости</h3>
+                    <p class="feature-description">Предотвращает спам уведомлений с настраиваемым ограничением скорости по IP и ключу</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Подробное логирование</h3>
+                    <p class="feature-description">Комплексное логирование с опциональным JSON форматом для интеграции с мониторингом</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="quick-start" id="quick-start">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Быстрый старт</h2>
+                <p class="section-subtitle">Настройте SSH мониторинг за несколько минут</p>
+            </div>
+            <div class="quick-start-content">
+                <div class="start-methods">
+                    <div class="method-card" data-aos="fade-up">
+                        <div class="method-icon">🚀</div>
+                        <h3 class="method-title">Автоматическая установка</h3>
+                        <p class="method-description">Автоматическая установка и настройка</p>
+                        <div class="method-code">
+                            <code>git clone https://github.com/B4DCATs/ssh-login-alert</code><br>
+                            <code>cd ssh-login-alert && sudo ./install.sh</code>
+                        </div>
+                        <div class="method-result">
+                            <span class="result-text">✅ SSH Alert установлен и настроен</span>
+                        </div>
+                    </div>
+                    <div class="method-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="method-icon">⚙️</div>
+                        <h3 class="method-title">Ручная настройка</h3>
+                        <p class="method-description">Настройка с ручной конфигурацией</p>
+                        <div class="method-code">
+                            <code>sudo nano /etc/ssh-alert/config.conf</code><br>
+                            <code>sudo systemctl restart ssh-alert</code>
+                        </div>
+                        <div class="method-result">
+                            <span class="result-text">✅ Конфигурация обновлена и сервис перезапущен</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="monitoring-stack">
+                    <h3 class="stack-title">Полная настройка безопасности SSH</h3>
+                    <p class="stack-description">Настройте Telegram бота и протестируйте уведомления</p>
+                    <div class="stack-code">
+                        <code># Настройте токен бота и ID чата</code><br>
+                        <code>sudo nano /etc/ssh-alert/config.conf</code><br>
+                        <code>sudo /opt/ssh-alert/ssh-alert-enhanced.sh</code>
+                    </div>
+                    <div class="stack-access">
+                        <div class="access-item">
+                            <span class="access-label">Логи:</span>
+                            <span class="access-url">/var/log/ssh-alert.log</span>
+                        </div>
+                        <div class="access-item">
+                            <span class="access-label">Конфиг:</span>
+                            <span class="access-url">/etc/ssh-alert/config.conf</span>
+                        </div>
+                        <div class="access-item">
+                            <span class="access-label">Скрипты:</span>
+                            <span class="access-url">/opt/ssh-alert/</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration Section -->
+    <section class="metrics" id="configuration">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Конфигурация</h2>
+                <p class="section-subtitle">Полный справочник по настройке SSH Alert</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-category">
+                    <h3 class="category-title">Основные настройки</h3>
+                    <div class="metric-list">
+                        <div class="metric-item">
+                            <code class="metric-name">TELEGRAM_BOT_TOKEN</code>
+                            <p class="metric-description">Токен вашего Telegram бота от @BotFather</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">TELEGRAM_CHAT_ID</code>
+                            <p class="metric-description">ID чата для получения уведомлений</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">SERVER_NAME</code>
+                            <p class="metric-description">Идентификатор сервера в уведомлениях</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="metric-category">
+                    <h3 class="category-title">Настройки уведомлений</h3>
+                    <div class="metric-list">
+                        <div class="metric-item">
+                            <code class="metric-name">NOTIFY_INTERACTIVE_SESSIONS</code>
+                            <p class="metric-description">Включить уведомления для интерактивных сессий</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">NOTIFY_TUNNELS</code>
+                            <p class="metric-description">Включить уведомления для SSH туннелей</p>
+                        </div>
+                        <div class="metric-item">
+                            <code class="metric-name">RATE_LIMIT_PER_IP</code>
+                            <p class="metric-description">Ограничение скорости по IP-адресу (секунды)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example-queries">
+                <h3 class="queries-title">Пример конфигурации</h3>
+                <div class="query-examples">
+                    <div class="query-item">
+                        <div class="query-label">Основная конфигурация:</div>
+                        <code class="query-code">TELEGRAM_BOT_TOKEN="your_bot_token_here"</code>
+                    </div>
+                    <div class="query-item">
+                        <div class="query-label">Ограничение скорости:</div>
+                        <code class="query-code">RATE_LIMIT_PER_IP=300</code>
+                    </div>
+                    <div class="query-item">
+                        <div class="query-label">Отладочное логирование:</div>
+                        <code class="query-code">LOG_LEVEL="DEBUG"</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Функции безопасности</h2>
+                <p class="section-subtitle">Готовые к продакшену функции безопасности для корпоративных сред</p>
+            </div>
+            <div class="security-features">
+                <div class="security-grid">
+                    <div class="security-item">
+                        <div class="security-icon">🔒</div>
+                        <h3>Минимальные зависимости</h3>
+                        <p>Работает без модификации SSH клиента и использует минимальные системные ресурсы</p>
+                        <div class="security-example">
+                            <code>Требования: Python 3.6+, curl, bash 4.0+</code>
+                        </div>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">⚡</div>
+                        <h3>Ограничение скорости</h3>
+                        <p>Предотвращает спам уведомлений с настраиваемым ограничением скорости по IP и ключу</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🔍</div>
+                        <h3>Подробное логирование</h3>
+                        <p>Комплексное логирование с опциональным JSON форматом для интеграции с мониторингом</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">🚫</div>
+                        <h3>Исключения ключей</h3>
+                        <p>Исключить автоматические подключения из уведомлений (CI/CD, мониторинг)</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">📝</div>
+                        <h3>Логика повторных попыток</h3>
+                        <p>Автоматические повторные попытки при сбоях сети или API Telegram для надежности</p>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-icon">👤</div>
+                        <h3>Установка от root</h3>
+                        <p>Требует права root для интеграции SSH и системной конфигурации</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Подпольное сообщество разработчиков</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Сообщество</h4>
+                        <a href="../../index.html#about" class="footer-link">О нас</a>
+                        <a href="../../index.html#projects" class="footer-link">Проекты</a>
+                        <a href="../../index.html#join" class="footer-link">Присоединиться</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <a href="https://github.com/B4DCATs/ssh-login-alert" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/B4DCATs/ssh-login-alert#installation" class="footer-link" target="_blank" rel="noopener">Документация</a>
+                        <a href="#" class="footer-link">Блог</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Контакты</h4>
+                        <a href="../../index.html#contact" class="footer-link">Связаться</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Сделано с ❤️ сообществом.
+                </div>
+                <div class="footer-legal">
+                    <a href="../../privacy.html" class="footer-link">Конфиденциальность</a>
+                    <a href="../../terms.html" class="footer-link">Условия</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../script.js"></script>
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104314560', 'ym');
+
+        ym(104314560, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104314560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</body>
+</html>
