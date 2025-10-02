@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSH Alert - Secure SSH Connection Monitoring | B4DCATs</title>
-    <meta name="description" content="Secure and reliable utility for monitoring SSH connections to a server with Telegram notifications. Maximum user identification, flexible notifications, and robust security.">
+    <title>SSH Alert — B4DCATs</title>
+    <meta name="description" content="Secure SSH connection monitoring with Telegram notifications. Maximum user identification, flexible notifications, and robust security measures.">
     <link rel="stylesheet" href="../../styles.css">
-    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 </head>
 <body>
     <!-- Navigation -->
@@ -50,294 +53,339 @@
                 </h1>
                 <p class="hero-description">
                     A secure and reliable utility for monitoring SSH connections to a server with Telegram notifications. 
-                    Features maximum user identification, flexible notifications, and robust security measures.
+                    Features <span class="highlight">maximum user identification</span>, <span class="highlight">flexible notifications</span>, 
+                    and <span class="highlight">robust security measures</span>.
                 </p>
                 <div class="hero-cta">
                     <a href="https://github.com/B4DCATs/ssh-login-alert" class="btn btn-primary" target="_blank" rel="noopener">
                         <span class="btn-text">View on GitHub</span>
-                        <span class="btn-icon">→</span>
+                        <span class="btn-icon">💻</span>
                     </a>
                     <a href="#installation" class="btn btn-secondary">
                         <span class="btn-text">Quick Install</span>
-                        <span class="btn-icon">⚡</span>
+                        <span class="btn-icon">🚀</span>
                     </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">ssh-alert@server:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">sudo ./install.sh</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Installing SSH Alert...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✓ Files copied to /opt/ssh-alert/</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✓ SSH integration configured</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✓ Log rotation setup</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">sudo nano /etc/ssh-alert/config.conf</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output"># Configure your Telegram bot token and chat ID</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
-                <h2 class="section-title">Key Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔍</div>
-                        <h3 class="feature-title">Maximum User Identification</h3>
-                        <p class="feature-description">
-                            Identifies users by IP address, key fingerprint, key comment, and connection type for complete visibility.
-                        </p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔔</div>
-                        <h3 class="feature-title">Flexible Notifications</h3>
-                        <p class="feature-description">
-                            Separate sound and silent messages for different connection types with customizable notification settings.
-                        </p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛡️</div>
-                        <h3 class="feature-title">Reliability & Security</h3>
-                        <p class="feature-description">
-                            Prevents duplicate notifications, includes retry logic, and works without SSH client modifications.
-                        </p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚙️</div>
-                        <h3 class="feature-title">Flexible Configuration</h3>
-                        <p class="feature-description">
-                            Easy configuration through config file with support for exclusions and rate limiting.
-                        </p>
-                    </div>
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Everything you need for SSH security monitoring</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Maximum User Identification</h3>
+                    <p class="feature-description">Identifies users by IP address, key fingerprint, key comment, and connection type</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Flexible Notifications</h3>
+                    <p class="feature-description">Separate sound and silent messages for different connection types</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Reliability & Security</h3>
+                    <p class="feature-description">Prevents duplicate notifications and includes retry logic for failures</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">⚙️</div>
+                    <h3 class="feature-title">Flexible Configuration</h3>
+                    <p class="feature-description">Easy configuration through config file with support for exclusions</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Rate Limiting</h3>
+                    <p class="feature-description">Prevents notification spam with configurable rate limiting per IP and key</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Detailed Logging</h3>
+                    <p class="feature-description">Comprehensive logging with optional JSON format for monitoring integration</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Installation Section -->
-    <section id="installation" class="installation">
+    <section class="installation" id="installation">
         <div class="container">
-                <h2 class="section-title">Quick Installation</h2>
-                <div class="installation-content">
-                    <div class="installation-steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h3 class="step-title">Clone Repository</h3>
-                                <div class="step-code">
-                                    <code>git clone https://github.com/B4DCATs/ssh-login-alert</code>
-                                    <code>cd ssh-login-alert</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h3 class="step-title">Run Installation</h3>
-                                <div class="step-code">
-                                    <code>sudo ./install.sh</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h3 class="step-title">Configure Telegram</h3>
-                                <p class="step-description">
-                                    Follow the interactive setup to configure your Telegram bot token and chat ID.
-                                </p>
+            <div class="section-header">
+                <h2 class="section-title">Installation</h2>
+                <p class="section-subtitle">Get SSH Alert running in minutes</p>
+            </div>
+            <div class="installation-content">
+                <div class="installation-steps">
+                    <div class="step-card" data-aos="fade-up">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Clone Repository</h3>
+                            <p class="step-description">Download the latest version from GitHub</p>
+                            <div class="step-code">
+                                <code>git clone https://github.com/B4DCATs/ssh-login-alert</code><br>
+                                <code>cd ssh-login-alert</code>
                             </div>
                         </div>
                     </div>
-                    <div class="installation-info">
-                        <h3 class="info-title">What happens during installation?</h3>
-                        <ul class="info-list">
-                            <li>Files are copied to <code>/opt/ssh-alert/</code> and <code>/etc/ssh-alert/</code></li>
-                            <li>SSH integration is configured through <code>/etc/ssh/sshrc</code></li>
-                            <li>Log rotation configuration is created</li>
-                            <li>Interactive Telegram setup is launched</li>
-                            <li>Configuration is tested</li>
-                        </ul>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Run Installation</h3>
+                            <p class="step-description">Execute the installation script with root privileges</p>
+                            <div class="step-code">
+                                <code>sudo ./install.sh</code>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-title">Configure Telegram</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Setup Notifications</h3>
+                            <p class="step-description">Configure your Telegram bot token and chat ID</p>
+                            <div class="step-code">
+                                <code>sudo nano /etc/ssh-alert/config.conf</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="installation-docker">
+                    <h3 class="docker-title">What happens during installation?</h3>
+                    <p class="docker-description">The installation script performs several setup tasks</p>
+                    <div class="docker-code">
+                        <code>✓ Files copied to /opt/ssh-alert/ and /etc/ssh-alert/</code><br>
+                        <code>✓ SSH integration configured through /etc/ssh/sshrc</code><br>
+                        <code>✓ Log rotation configuration created</code><br>
+                        <code>✓ Interactive Telegram setup launched</code><br>
+                        <code>✓ Configuration tested</code>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Configuration Section -->
-    <section class="configuration">
+    <section class="commands" id="configuration">
         <div class="container">
+            <div class="section-header">
                 <h2 class="section-title">Configuration</h2>
-                <div class="configuration-content">
-                    <div class="config-example">
-                        <h3 class="config-title">Basic Settings</h3>
-                        <div class="config-code">
-                            <pre><code># Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN="your_bot_token_here"
-TELEGRAM_CHAT_ID="your_chat_id_here"
-
-# Server Information
-SERVER_NAME="server01"
-SERVER_DOMAIN="example.com"
-
-# Notification Settings
-NOTIFY_INTERACTIVE_SESSIONS=true
-NOTIFY_TUNNELS=false
-NOTIFY_COMMANDS=false
-DISABLE_NOTIFICATION_SOUND_FOR_TUNNELS=true
-
-# Rate Limiting (seconds)
-RATE_LIMIT_PER_IP=300
-RATE_LIMIT_PER_KEY=60</code></pre>
+                <p class="section-subtitle">Complete configuration reference</p>
+            </div>
+            <div class="commands-grid">
+                <div class="command-category" data-aos="fade-up">
+                    <h3 class="category-title">Basic Settings</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <div class="command-name">TELEGRAM_BOT_TOKEN</div>
+                            <div class="command-description">Your Telegram bot token from @BotFather</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">TELEGRAM_CHAT_ID</div>
+                            <div class="command-description">Chat ID for receiving notifications</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">SERVER_NAME</div>
+                            <div class="command-description">Server identifier in notifications</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">SERVER_DOMAIN</div>
+                            <div class="command-description">Server domain for notifications</div>
                         </div>
                     </div>
-                    <div class="config-features">
-                        <div class="config-feature">
-                            <h4 class="config-feature-title">🔑 Key Exclusions</h4>
-                            <p>Exclude automated connections from notifications:</p>
-                            <div class="config-code-small">
-                                <code>sudo ./manage-exclusions.sh add "pipeline@ci"</code>
-                            </div>
+                </div>
+                <div class="command-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Notification Settings</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <div class="command-name">NOTIFY_INTERACTIVE_SESSIONS</div>
+                            <div class="command-description">Enable notifications for interactive shells</div>
                         </div>
-                        <div class="config-feature">
-                            <h4 class="config-feature-title">📊 Log Rotation</h4>
-                            <p>Automatic log management with compression:</p>
-                            <div class="config-code-small">
-                                <code>sudo ./check-log-rotation.sh status</code>
-                            </div>
+                        <div class="command-item">
+                            <div class="command-name">NOTIFY_TUNNELS</div>
+                            <div class="command-description">Enable notifications for SSH tunnels</div>
                         </div>
-                        <div class="config-feature">
-                            <h4 class="config-feature-title">🔍 Debug Mode</h4>
-                            <p>Enable detailed logging for troubleshooting:</p>
-                            <div class="config-code-small">
-                                <code>LOG_LEVEL="DEBUG"</code>
-                            </div>
+                        <div class="command-item">
+                            <div class="command-name">NOTIFY_COMMANDS</div>
+                            <div class="command-description">Enable notifications for command execution</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">DISABLE_NOTIFICATION_SOUND_FOR_TUNNELS</div>
+                            <div class="command-description">Disable sound for tunnel notifications</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">Rate Limiting</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <div class="command-name">RATE_LIMIT_PER_IP</div>
+                            <div class="command-description">Rate limit per IP address (seconds)</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">RATE_LIMIT_PER_KEY</div>
+                            <div class="command-description">Rate limit per SSH key (seconds)</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">EXCLUDED_KEY_COMMENTS</div>
+                            <div class="command-description">Comma-separated list of excluded key comments</div>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-name">LOG_LEVEL</div>
+                            <div class="command-description">Logging level: DEBUG, INFO, WARNING, ERROR</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    <!-- Notification Example -->
-    <section class="notification-demo">
+    <!-- Notification Demo Section -->
+    <section class="panel-demo" id="demo">
         <div class="container">
+            <div class="section-header">
                 <h2 class="section-title">Notification Example</h2>
-                <div class="notification-preview">
-                    <div class="notification-card">
-                        <div class="notification-header">
-                            <span class="notification-icon">🔐</span>
-                            <span class="notification-title">SSH Login Alert</span>
+                <p class="section-subtitle">Real-time SSH connection alerts</p>
+            </div>
+            <div class="panel-demo-content">
+                <div class="panel-preview">
+                    <div class="panel-card" data-aos="fade-up">
+                        <h3 class="panel-title">Telegram Notification</h3>
+                        <div class="panel-code">
+                            <code>🔐 SSH Login Alert:</code><br>
+                            <code>Host IP: 203.0.113.1 / 192.168.1.100</code><br>
+                            <code>Host: server01.example.com</code><br>
+                            <code>Person: alice@example.com</code><br>
+                            <code>IP: 198.51.100.50</code><br>
+                            <code>Type: Interactive shell</code><br>
+                            <code>Key: SHA256:abcd1234...</code><br>
+                            <code>Time: 2024-01-15 14:30:25 UTC</code>
                         </div>
-                        <div class="notification-content">
-                            <div class="notification-field">
-                                <span class="field-label">Host IP:</span>
-                                <span class="field-value">203.0.113.1 / 192.168.1.100</span>
-                            </div>
-                            <div class="notification-field">
-                                <span class="field-label">Host:</span>
-                                <span class="field-value">server01.example.com</span>
-                            </div>
-                            <div class="notification-field">
-                                <span class="field-label">Person:</span>
-                                <span class="field-value">alice@example.com</span>
-                            </div>
-                            <div class="notification-field">
-                                <span class="field-label">IP:</span>
-                                <span class="field-value">198.51.100.50</span>
-                            </div>
-                            <div class="notification-field">
-                                <span class="field-label">Type:</span>
-                                <span class="field-value">Interactive shell</span>
-                            </div>
-                            <div class="notification-field">
-                                <span class="field-label">Key:</span>
-                                <span class="field-value">SHA256:abcd1234...</span>
-                            </div>
-                            <div class="notification-field">
-                                <span class="field-label">Time:</span>
-                                <span class="field-value">2024-01-15 14:30:25 UTC</span>
-                            </div>
+                    </div>
+                    <div class="panel-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="panel-title">Log Entry</h3>
+                        <div class="panel-code">
+                            <code>[2024-01-15 14:30:25] [INFO] SSH alert sent</code><br>
+                            <code>User: alice@example.com</code><br>
+                            <code>IP: 198.51.100.50</code><br>
+                            <code>Key: SHA256:abcd1234...</code><br>
+                            <code>Type: Interactive shell</code><br>
+                            <code>Rate limit: OK</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-features">
+                    <div class="feature-item" data-aos="fade-up">
+                        <div class="feature-icon">🔐</div>
+                        <div class="feature-content">
+                            <h4>Security Alerts</h4>
+                            <p>Immediate notifications for all SSH connections</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-content">
+                            <h4>Detailed Information</h4>
+                            <p>Complete connection details with user identification</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-content">
+                            <h4>Real-time Monitoring</h4>
+                            <p>Instant alerts with configurable sound settings</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    <!-- Security Section -->
-    <section class="security">
-        <div class="container">
-                <h2 class="section-title">Security Features</h2>
-                <div class="security-grid">
-                    <div class="security-card">
-                        <div class="security-icon">🔒</div>
-                        <h3 class="security-title">Minimal Dependencies</h3>
-                        <p class="security-description">
-                            Works without SSH client modifications and uses minimal system resources.
-                        </p>
-                    </div>
-                    <div class="security-card">
-                        <div class="security-icon">🛡️</div>
-                        <h3 class="security-title">Rate Limiting</h3>
-                        <p class="security-description">
-                            Prevents notification spam with configurable rate limiting per IP and key.
-                        </p>
-                    </div>
-                    <div class="security-card">
-                        <div class="security-icon">🔍</div>
-                        <h3 class="security-title">Detailed Logging</h3>
-                        <p class="security-description">
-                            Comprehensive logging with optional JSON format for monitoring integration.
-                        </p>
-                    </div>
-                    <div class="security-card">
-                        <div class="security-icon">⚡</div>
-                        <h3 class="security-title">Retry Logic</h3>
-                        <p class="security-description">
-                            Automatic retries on network or Telegram API failures for reliability.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    <!-- Requirements Section -->
-    <section class="requirements">
-        <div class="container">
-                <h2 class="section-title">Requirements</h2>
-                <div class="requirements-content">
-                    <div class="requirements-list">
-                        <div class="requirement-item">
-                            <span class="requirement-icon">🐧</span>
-                            <span class="requirement-text">Linux server with OpenSSH</span>
-                        </div>
-                        <div class="requirement-item">
-                            <span class="requirement-icon">🐍</span>
-                            <span class="requirement-text">Python 3.6+</span>
-                        </div>
-                        <div class="requirement-item">
-                            <span class="requirement-icon">🌐</span>
-                            <span class="requirement-text">curl</span>
-                        </div>
-                        <div class="requirement-item">
-                            <span class="requirement-icon">💻</span>
-                            <span class="requirement-text">bash 4.0+</span>
-                        </div>
-                        <div class="requirement-item">
-                            <span class="requirement-icon">🔑</span>
-                            <span class="requirement-text">Root privileges for installation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="../../favicon.svg" alt="B4DCATs" class="footer-logo">
-                    <span class="footer-text">B4DCATs</span>
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Underground developer community</p>
                 </div>
                 <div class="footer-links">
-                    <a href="../../privacy.html" class="footer-link">Privacy</a>
-                    <a href="../../terms.html" class="footer-link">Terms</a>
-                    <a href="https://github.com/B4DCATs" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Community</h4>
+                        <a href="../../index.html#about" class="footer-link">About</a>
+                        <a href="../../index.html#projects" class="footer-link">Projects</a>
+                        <a href="../../index.html#join" class="footer-link">Join</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="https://github.com/B4DCATs/ssh-login-alert" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/B4DCATs/ssh-login-alert#installation" class="footer-link" target="_blank" rel="noopener">Documentation</a>
+                        <a href="#" class="footer-link">Blog</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <a href="../../index.html#contact" class="footer-link">Get in Touch</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copyright">© 2024 B4DCATs. All rights reserved.</p>
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Made with ❤️ by the community.
+                </div>
+                <div class="footer-legal">
+                    <a href="../../privacy.html" class="footer-link">Privacy</a>
+                    <a href="../../terms.html" class="footer-link">Terms</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="../../script.js"></script>
+    
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
