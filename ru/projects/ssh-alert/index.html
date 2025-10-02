@@ -9,62 +9,66 @@
     <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <a href="../../index.html" class="nav-logo">
-                    <img src="../../../favicon.svg" alt="B4DCATs" class="nav-logo-img">
-                    <span class="nav-logo-text">B4DCATs</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
                 </a>
             </div>
             <div class="nav-links">
-                <a href="../../index.html" class="nav-link">Главная</a>
-                <a href="../../index.html#projects" class="nav-link">Проекты</a>
                 <a href="../../index.html#about" class="nav-link">О нас</a>
-                <a href="../../../projects/ssh-alert/" class="nav-link">EN</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="main">
-        <!-- Hero Section -->
-        <section class="project-hero">
-            <div class="container">
-                <div class="project-hero-content">
-                    <div class="project-hero-text">
-                        <h1 class="project-hero-title">SSH Alert</h1>
-                        <p class="project-hero-subtitle">Мониторинг SSH подключений</p>
-                        <p class="project-hero-description">
-                            Безопасная и надежная утилита для мониторинга SSH подключений к серверу с уведомлениями в Telegram. 
-                            Обеспечивает максимальную идентификацию пользователей, гибкие уведомления и надежные меры безопасности.
-                        </p>
-                        <div class="project-hero-badges">
-                            <span class="project-badge">Безопасность</span>
-                            <span class="project-badge">Мониторинг</span>
-                            <span class="project-badge">Telegram</span>
-                            <span class="project-badge">Linux</span>
-                        </div>
-                        <div class="project-hero-actions">
-                            <a href="https://github.com/B4DCATs/ssh-login-alert" class="btn btn-primary" target="_blank" rel="noopener">
-                                <span class="btn-icon">📁</span>
-                                Посмотреть на GitHub
-                            </a>
-                            <a href="#installation" class="btn btn-secondary">
-                                <span class="btn-icon">⚡</span>
-                                Быстрая установка
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-hero-visual">
-                        <div class="project-status" data-status="released">Выпущен</div>
-                    </div>
+                <a href="../../index.html#projects" class="nav-link">Проекты</a>
+                <a href="../../index.html#join" class="nav-link">Присоединиться</a>
+                <a href="../../index.html#contact" class="nav-link">Контакты</a>
+                <div class="language-switcher">
+                    <span class="lang-link active">RU</span>
+                    <span class="lang-separator">|</span>
+                    <a href="../../../projects/ssh-alert/" class="lang-link">EN</a>
                 </div>
             </div>
-        </section>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="container">
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">ВЫПУЩЕН</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">SSH Alert</span>
+                    <span class="title-subtitle">Мониторинг SSH подключений</span>
+                </h1>
+                <p class="hero-description">
+                    Безопасная и надежная утилита для мониторинга SSH подключений к серверу с уведомлениями в Telegram. 
+                    Обеспечивает максимальную идентификацию пользователей, гибкие уведомления и надежные меры безопасности.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/B4DCATs/ssh-login-alert" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-text">Посмотреть на GitHub</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="#installation" class="btn btn-secondary">
+                        <span class="btn-text">Быстрая установка</span>
+                        <span class="btn-icon">⚡</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
                 <h2 class="section-title">Ключевые возможности</h2>
                 <div class="features-grid">
                     <div class="feature-card">
@@ -99,9 +103,9 @@
             </div>
         </section>
 
-        <!-- Installation Section -->
-        <section id="installation" class="installation">
-            <div class="container">
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
                 <h2 class="section-title">Быстрая установка</h2>
                 <div class="installation-content">
                     <div class="installation-steps">
@@ -148,9 +152,9 @@
             </div>
         </section>
 
-        <!-- Configuration Section -->
-        <section class="configuration">
-            <div class="container">
+    <!-- Configuration Section -->
+    <section class="configuration">
+        <div class="container">
                 <h2 class="section-title">Конфигурация</h2>
                 <div class="configuration-content">
                     <div class="config-example">
@@ -202,9 +206,9 @@ RATE_LIMIT_PER_KEY=60</code></pre>
             </div>
         </section>
 
-        <!-- Notification Example -->
-        <section class="notification-demo">
-            <div class="container">
+    <!-- Notification Example -->
+    <section class="notification-demo">
+        <div class="container">
                 <h2 class="section-title">Пример уведомления</h2>
                 <div class="notification-preview">
                     <div class="notification-card">
@@ -247,9 +251,9 @@ RATE_LIMIT_PER_KEY=60</code></pre>
             </div>
         </section>
 
-        <!-- Security Section -->
-        <section class="security">
-            <div class="container">
+    <!-- Security Section -->
+    <section class="security">
+        <div class="container">
                 <h2 class="section-title">Функции безопасности</h2>
                 <div class="security-grid">
                     <div class="security-card">
@@ -284,9 +288,9 @@ RATE_LIMIT_PER_KEY=60</code></pre>
             </div>
         </section>
 
-        <!-- Requirements Section -->
-        <section class="requirements">
-            <div class="container">
+    <!-- Requirements Section -->
+    <section class="requirements">
+        <div class="container">
                 <h2 class="section-title">Требования</h2>
                 <div class="requirements-content">
                     <div class="requirements-list">
@@ -314,7 +318,6 @@ RATE_LIMIT_PER_KEY=60</code></pre>
                 </div>
             </div>
         </section>
-    </main>
 
     <footer class="footer">
         <div class="container">
