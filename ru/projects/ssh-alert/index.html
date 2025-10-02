@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Alert - Мониторинг SSH подключений | B4DCATs</title>
+    <meta name="description" content="Безопасная и надежная утилита для мониторинга SSH подключений к серверу с уведомлениями в Telegram. Максимальная идентификация пользователей, гибкие уведомления и надежная безопасность.">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../../index.html" class="nav-logo">
+                    <img src="../../../favicon.svg" alt="B4DCATs" class="nav-logo-img">
+                    <span class="nav-logo-text">B4DCATs</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html" class="nav-link">Главная</a>
+                <a href="../../index.html#projects" class="nav-link">Проекты</a>
+                <a href="../../index.html#about" class="nav-link">О нас</a>
+                <a href="../../../projects/ssh-alert/" class="nav-link">EN</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="container">
+                <div class="project-hero-content">
+                    <div class="project-hero-text">
+                        <h1 class="project-hero-title">SSH Alert</h1>
+                        <p class="project-hero-subtitle">Мониторинг SSH подключений</p>
+                        <p class="project-hero-description">
+                            Безопасная и надежная утилита для мониторинга SSH подключений к серверу с уведомлениями в Telegram. 
+                            Обеспечивает максимальную идентификацию пользователей, гибкие уведомления и надежные меры безопасности.
+                        </p>
+                        <div class="project-hero-badges">
+                            <span class="project-badge">Безопасность</span>
+                            <span class="project-badge">Мониторинг</span>
+                            <span class="project-badge">Telegram</span>
+                            <span class="project-badge">Linux</span>
+                        </div>
+                        <div class="project-hero-actions">
+                            <a href="https://github.com/B4DCATs/ssh-login-alert" class="btn btn-primary" target="_blank" rel="noopener">
+                                <span class="btn-icon">📁</span>
+                                Посмотреть на GitHub
+                            </a>
+                            <a href="#installation" class="btn btn-secondary">
+                                <span class="btn-icon">⚡</span>
+                                Быстрая установка
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-hero-visual">
+                        <div class="project-status" data-status="released">Выпущен</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Ключевые возможности</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Максимальная идентификация</h3>
+                        <p class="feature-description">
+                            Идентифицирует пользователей по IP-адресу, отпечатку ключа, комментарию ключа и типу подключения для полной видимости.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔔</div>
+                        <h3 class="feature-title">Гибкие уведомления</h3>
+                        <p class="feature-description">
+                            Отдельные звуковые и тихие сообщения для разных типов подключений с настраиваемыми параметрами уведомлений.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Надежность и безопасность</h3>
+                        <p class="feature-description">
+                            Предотвращает дублирование уведомлений, включает логику повторных попыток и работает без модификации SSH клиента.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3 class="feature-title">Гибкая настройка</h3>
+                        <p class="feature-description">
+                            Простая настройка через файл конфигурации с поддержкой исключений и ограничения скорости.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="installation">
+            <div class="container">
+                <h2 class="section-title">Быстрая установка</h2>
+                <div class="installation-content">
+                    <div class="installation-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Клонировать репозиторий</h3>
+                                <div class="step-code">
+                                    <code>git clone https://github.com/B4DCATs/ssh-login-alert</code>
+                                    <code>cd ssh-login-alert</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Запустить установку</h3>
+                                <div class="step-code">
+                                    <code>sudo ./install.sh</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Настроить Telegram</h3>
+                                <p class="step-description">
+                                    Следуйте интерактивной настройке для конфигурации токена бота и ID чата Telegram.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="installation-info">
+                        <h3 class="info-title">Что происходит при установке?</h3>
+                        <ul class="info-list">
+                            <li>Файлы копируются в <code>/opt/ssh-alert/</code> и <code>/etc/ssh-alert/</code></li>
+                            <li>Настраивается интеграция SSH через <code>/etc/ssh/sshrc</code></li>
+                            <li>Создается конфигурация ротации логов</li>
+                            <li>Запускается интерактивная настройка Telegram</li>
+                            <li>Тестируется конфигурация</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration Section -->
+        <section class="configuration">
+            <div class="container">
+                <h2 class="section-title">Конфигурация</h2>
+                <div class="configuration-content">
+                    <div class="config-example">
+                        <h3 class="config-title">Основные настройки</h3>
+                        <div class="config-code">
+                            <pre><code># Конфигурация Telegram бота
+TELEGRAM_BOT_TOKEN="your_bot_token_here"
+TELEGRAM_CHAT_ID="your_chat_id_here"
+
+# Информация о сервере
+SERVER_NAME="server01"
+SERVER_DOMAIN="example.com"
+
+# Настройки уведомлений
+NOTIFY_INTERACTIVE_SESSIONS=true
+NOTIFY_TUNNELS=false
+NOTIFY_COMMANDS=false
+DISABLE_NOTIFICATION_SOUND_FOR_TUNNELS=true
+
+# Ограничение скорости (секунды)
+RATE_LIMIT_PER_IP=300
+RATE_LIMIT_PER_KEY=60</code></pre>
+                        </div>
+                    </div>
+                    <div class="config-features">
+                        <div class="config-feature">
+                            <h4 class="config-feature-title">🔑 Исключения ключей</h4>
+                            <p>Исключить автоматические подключения из уведомлений:</p>
+                            <div class="config-code-small">
+                                <code>sudo ./manage-exclusions.sh add "pipeline@ci"</code>
+                            </div>
+                        </div>
+                        <div class="config-feature">
+                            <h4 class="config-feature-title">📊 Ротация логов</h4>
+                            <p>Автоматическое управление логами с сжатием:</p>
+                            <div class="config-code-small">
+                                <code>sudo ./check-log-rotation.sh status</code>
+                            </div>
+                        </div>
+                        <div class="config-feature">
+                            <h4 class="config-feature-title">🔍 Режим отладки</h4>
+                            <p>Включить подробное логирование для диагностики:</p>
+                            <div class="config-code-small">
+                                <code>LOG_LEVEL="DEBUG"</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Example -->
+        <section class="notification-demo">
+            <div class="container">
+                <h2 class="section-title">Пример уведомления</h2>
+                <div class="notification-preview">
+                    <div class="notification-card">
+                        <div class="notification-header">
+                            <span class="notification-icon">🔐</span>
+                            <span class="notification-title">SSH Login Alert</span>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-field">
+                                <span class="field-label">Host IP:</span>
+                                <span class="field-value">203.0.113.1 / 192.168.1.100</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Host:</span>
+                                <span class="field-value">server01.example.com</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Person:</span>
+                                <span class="field-value">alice@example.com</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">IP:</span>
+                                <span class="field-value">198.51.100.50</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Type:</span>
+                                <span class="field-value">Interactive shell</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Key:</span>
+                                <span class="field-value">SHA256:abcd1234...</span>
+                            </div>
+                            <div class="notification-field">
+                                <span class="field-label">Time:</span>
+                                <span class="field-value">2024-01-15 14:30:25 UTC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section class="security">
+            <div class="container">
+                <h2 class="section-title">Функции безопасности</h2>
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-icon">🔒</div>
+                        <h3 class="security-title">Минимальные зависимости</h3>
+                        <p class="security-description">
+                            Работает без модификации SSH клиента и использует минимальные системные ресурсы.
+                        </p>
+                    </div>
+                    <div class="security-card">
+                        <div class="security-icon">🛡️</div>
+                        <h3 class="security-title">Ограничение скорости</h3>
+                        <p class="security-description">
+                            Предотвращает спам уведомлений с настраиваемым ограничением скорости по IP и ключу.
+                        </p>
+                    </div>
+                    <div class="security-card">
+                        <div class="security-icon">🔍</div>
+                        <h3 class="security-title">Подробное логирование</h3>
+                        <p class="security-description">
+                            Комплексное логирование с опциональным JSON форматом для интеграции с мониторингом.
+                        </p>
+                    </div>
+                    <div class="security-card">
+                        <div class="security-icon">⚡</div>
+                        <h3 class="security-title">Логика повторных попыток</h3>
+                        <p class="security-description">
+                            Автоматические повторные попытки при сбоях сети или API Telegram для надежности.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="requirements">
+            <div class="container">
+                <h2 class="section-title">Требования</h2>
+                <div class="requirements-content">
+                    <div class="requirements-list">
+                        <div class="requirement-item">
+                            <span class="requirement-icon">🐧</span>
+                            <span class="requirement-text">Linux сервер с OpenSSH</span>
+                        </div>
+                        <div class="requirement-item">
+                            <span class="requirement-icon">🐍</span>
+                            <span class="requirement-text">Python 3.6+</span>
+                        </div>
+                        <div class="requirement-item">
+                            <span class="requirement-icon">🌐</span>
+                            <span class="requirement-text">curl</span>
+                        </div>
+                        <div class="requirement-item">
+                            <span class="requirement-icon">💻</span>
+                            <span class="requirement-text">bash 4.0+</span>
+                        </div>
+                        <div class="requirement-item">
+                            <span class="requirement-icon">🔑</span>
+                            <span class="requirement-text">Права root для установки</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../../../favicon.svg" alt="B4DCATs" class="footer-logo">
+                    <span class="footer-text">B4DCATs</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../../privacy.html" class="footer-link">Конфиденциальность</a>
+                    <a href="../../terms.html" class="footer-link">Условия</a>
+                    <a href="https://github.com/B4DCATs" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 B4DCATs. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104314560', 'ym');
+
+        ym(104314560, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104314560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</body>
+</html>
