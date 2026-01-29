@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Image Resize — B4DCATs</title>
+    <meta name="description" content="Онлайн-инструмент для изменения размера изображений для наград Twitch канала. Генерация нескольких размеров (28x28, 56x56, 112x112) одним кликом.">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        /* Tabs Styles */
+        .tabs-container {
+            margin-top: var(--spacing-2xl);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: var(--spacing-md);
+            border-bottom: 2px solid var(--bg-tertiary);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: var(--spacing-md) var(--spacing-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: var(--accent-primary);
+        }
+
+        .tab-button.active {
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--text-muted);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-3xl);
+            margin: var(--spacing-xl) 0;
+            transition: var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        .upload-area.dragover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 255, 65, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .upload-text {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .upload-hint {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-family: var(--font-mono);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .preview-section {
+            margin-top: var(--spacing-xl);
+            display: none;
+        }
+
+        .preview-section.active {
+            display: block;
+        }
+
+        .preview-image {
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-primary);
+            margin: var(--spacing-lg) auto;
+            display: block;
+        }
+
+        .resize-button {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent-primary);
+            padding: var(--spacing-md) var(--spacing-2xl);
+            border-radius: var(--radius-md);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            margin-top: var(--spacing-lg);
+        }
+
+        .resize-button:hover {
+            background: transparent;
+            color: var(--accent-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .resize-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .sizes-info {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            text-align: left;
+        }
+
+        .sizes-info h3 {
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .sizes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sizes-list li {
+            color: var(--text-secondary);
+            padding: var(--spacing-sm) 0;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+
+        .sizes-list li::before {
+            content: "→";
+            color: var(--accent-primary);
+            margin-right: var(--spacing-sm);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .loading-text {
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+        }
+
+        .error-message {
+            background: rgba(255, 0, 64, 0.1);
+            border: 1px solid var(--accent-error);
+            color: var(--accent-error);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-lg);
+            display: none;
+            font-family: var(--font-mono);
+        }
+
+        .error-message.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../../index.html#about" class="nav-link">О нас</a>
+                <a href="../../../index.html#projects" class="nav-link">Проекты</a>
+                <a href="../../../index.html#join" class="nav-link">Присоединиться</a>
+                <a href="../../../index.html#contact" class="nav-link">Контакты</a>
+                <div class="language-switcher">
+                    <span class="lang-link active">RU</span>
+                    <span class="lang-separator">|</span>
+                    <a href="../../../projects/twitch-image-resize/" class="lang-link">EN</a>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">ВЫПУЩЕН</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Twitch Image Resize</span>
+                    <span class="title-subtitle">Инструмент для наград канала</span>
+                </h1>
+                <p class="hero-description">
+                    Онлайн-инструмент для изменения размера изображений для наград Twitch канала. 
+                    <span class="highlight">Генерация нескольких размеров</span> (28x28, 56x56, 112x112) 
+                    <span class="highlight">одним кликом</span>.
+                </p>
+                <div class="hero-cta">
+                    <a href="#tool" class="btn btn-primary">
+                        <span class="btn-text">Использовать</span>
+                        <span class="btn-icon">🖼️</span>
+                    </a>
+                    <a href="https://github.com/b4dcats/twitch-image-resize" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <span class="btn-text">Исходный код</span>
+                        <span class="btn-icon">💻</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">twitch-resize@tool:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">upload image.png</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">📁 Изображение загружено: 512x512</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">resize --sizes 28,56,112</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✅ Генерация размеров: 28x28, 56x56, 112x112</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">📦 Создание архива...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">✅ Архив готов: twitch-rewards.zip</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="features" id="tool">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Инструмент изменения размера</h2>
+                <p class="section-subtitle">Измените размер изображений для наград Twitch канала</p>
+            </div>
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="channel-rewards">Награды канала</button>
+                </div>
+                <div class="tab-content active" id="channel-rewards">
+                    <div class="upload-section">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📁</div>
+                            <div class="upload-text">Перетащите изображение сюда или нажмите для выбора</div>
+                            <div class="upload-hint">Поддерживаются: PNG, JPG, GIF, WebP</div>
+                        </div>
+                        <input type="file" id="fileInput" class="file-input" accept="image/*">
+                        <div class="preview-section" id="previewSection">
+                            <img id="previewImage" class="preview-image" alt="Предпросмотр">
+                            <button class="resize-button" id="resizeButton">Изменить размер</button>
+                        </div>
+                        <div class="loading" id="loading">
+                            <div class="loading-text">Обработка изображений...</div>
+                        </div>
+                        <div class="error-message" id="errorMessage"></div>
+                        <div class="sizes-info">
+                            <h3>Выходные размеры</h3>
+                            <ul class="sizes-list">
+                                <li>28x28 пикселей</li>
+                                <li>56x56 пикселей</li>
+                                <li>112x112 пикселей</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Underground developer community</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Сообщество</h4>
+                        <a href="../../../index.html#about" class="footer-link">О нас</a>
+                        <a href="../../../index.html#projects" class="footer-link">Проекты</a>
+                        <a href="../../../index.html#join" class="footer-link">Присоединиться</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <a href="#" class="footer-link">Документация</a>
+                        <a href="https://github.com/b4dcats" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="#" class="footer-link">Блог</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Контакты</h4>
+                        <a href="../../../index.html#contact" class="footer-link">Связаться</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Made with ❤️ by the community.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../script.js"></script>
+    <script>
+        // Image resize functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewSection = document.getElementById('previewSection');
+        const previewImage = document.getElementById('previewImage');
+        const resizeButton = document.getElementById('resizeButton');
+        const loading = document.getElementById('loading');
+        const errorMessage = document.getElementById('errorMessage');
+        let currentFile = null;
+
+        // Click to upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Handle file
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) {
+                showError('Пожалуйста, выберите файл изображения');
+                return;
+            }
+
+            currentFile = file;
+            errorMessage.classList.remove('active');
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                previewSection.classList.add('active');
+                resizeButton.disabled = false;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Resize button
+        resizeButton.addEventListener('click', async () => {
+            if (!currentFile) return;
+
+            loading.classList.add('active');
+            resizeButton.disabled = true;
+            errorMessage.classList.remove('active');
+
+            try {
+                const sizes = [28, 56, 112];
+                const zip = new JSZip();
+
+                // Load image
+                const img = new Image();
+                img.src = URL.createObjectURL(currentFile);
+
+                await new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = reject;
+                });
+
+                // Resize for each size
+                for (const size of sizes) {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = size;
+                    canvas.height = size;
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Draw image with proper scaling
+                    ctx.drawImage(img, 0, 0, size, size);
+
+                    // Convert to blob
+                    const blob = await new Promise((resolve) => {
+                        canvas.toBlob(resolve, 'image/png');
+                    });
+
+                    // Add to zip
+                    zip.file(`${size}x${size}.png`, blob);
+                }
+
+                // Generate zip
+                const zipBlob = await zip.generateAsync({ type: 'blob' });
+                
+                // Download
+                const url = URL.createObjectURL(zipBlob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'twitch-rewards.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                loading.classList.remove('active');
+                resizeButton.disabled = false;
+            } catch (error) {
+                console.error('Error processing image:', error);
+                showError('Ошибка обработки изображения. Пожалуйста, попробуйте снова.');
+                loading.classList.remove('active');
+                resizeButton.disabled = false;
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('active');
+        }
+    </script>
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104314560', 'ym');
+
+        ym(104314560, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104314560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</body>
+</html>
