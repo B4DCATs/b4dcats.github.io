@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Telegram Bot — B4DCATs</title>
+    <meta name="description" content="Telegram bot for managing Jira issues with inline buttons and multi-user support. Each user registers with their own Jira credentials. English and Russian.">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../index.html#about" class="nav-link">About</a>
+                <a href="../../index.html#projects" class="nav-link">Projects</a>
+                <a href="../../index.html#join" class="nav-link">Join</a>
+                <a href="../../index.html#contact" class="nav-link">Contact</a>
+                <div class="language-switcher">
+                    <a href="../../ru/projects/jira-telegram-bot/" class="lang-link">RU</a>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-link active">EN</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">RELEASED</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Jira Telegram Bot</span>
+                    <span class="title-subtitle">Jira issues in Telegram</span>
+                </h1>
+                <p class="hero-description">
+                    A Telegram bot for managing Jira issues with <span class="highlight">inline buttons</span> and 
+                    <span class="highlight">multi-user support</span>. Each user registers with their own Jira credentials 
+                    and works with their projects and tasks. <span class="highlight">English and Russian</span>.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://github.com/mrvi0/auto_jira_bot" class="btn btn-primary" target="_blank" rel="noopener">
+                        <span class="btn-text">View on GitHub</span>
+                        <span class="btn-icon">💻</span>
+                    </a>
+                    <a href="#quick-start" class="btn btn-secondary">
+                        <span class="btn-text">Quick Start</span>
+                        <span class="btn-icon">🚀</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">jira-bot@server:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cp .env.example .env && pip install -r requirements.txt</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Installing dependencies...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">python bot.py</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Bot is running. Send /register in Telegram.</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Manage Jira from Telegram</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Multi-user</h3>
+                    <p class="feature-description">Each user registers with their own Jira URL, email, API token, and project keys</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🔘</div>
+                    <h3 class="feature-title">Inline buttons</h3>
+                    <p class="feature-description">Work with issues using inline keyboards — no need to type commands</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">English & Russian</h3>
+                    <p class="feature-description">Interface language follows Telegram language; can be changed in Settings</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">Your projects</h3>
+                    <p class="feature-description">Each user works only with their configured Jira projects and tasks</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Service mode</h3>
+                    <p class="feature-description">Run as a user or system service on Linux (scripts included)</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">🐍</div>
+                    <h3 class="feature-title">Python</h3>
+                    <p class="feature-description">python-telegram-bot, requests, pydantic — minimal stack</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="installation" id="quick-start">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick start</h2>
+                <p class="section-subtitle">Get the bot running in minutes</p>
+            </div>
+            <div class="installation-content">
+                <div class="installation-steps">
+                    <div class="step-card" data-aos="fade-up">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Create a bot</h3>
+                        <p class="step-description">Use <a href="https://t.me/BotFather" target="_blank" rel="noopener">@BotFather</a> in Telegram, send <code>/newbot</code>, copy the token.</p>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Configure .env</h3>
+                        <div class="step-code">
+                            <code>cp .env.example .env</code><br>
+                            <code># Set TELEGRAM_BOT_TOKEN (and optionally JIRA_URL, ADMIN_USER_IDS)</code>
+                        </div>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Install and run</h3>
+                        <div class="step-code">
+                            <code>pip install -r requirements.txt</code><br>
+                            <code>python bot.py</code>
+                        </div>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Register in Telegram</h3>
+                        <p class="step-description">Send <code>/register</code> to your bot and enter Jira URL, email, API token, project key(s).</p>
+                    </div>
+                </div>
+                <div class="installation-docker">
+                    <h3 class="docker-title">Run as a service (Linux)</h3>
+                    <p class="docker-description">From the <code>scripts</code> directory:</p>
+                    <div class="docker-code">
+                        <code>./install-service.sh --install</code><br>
+                        <code># or: ./install-service.sh --install-system</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation -->
+    <section class="features" id="docs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Documentation</h2>
+                <p class="section-subtitle">Full docs in the repository</p>
+            </div>
+            <div class="installation-content">
+                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+                    The bot has documentation in English and Russian: quick start, Termux (background run), security, and contributing to translations.
+                </p>
+                <a href="https://github.com/mrvi0/auto_jira_bot#documentation" class="btn btn-primary" target="_blank" rel="noopener">
+                    <span class="btn-text">Docs on GitHub</span>
+                    <span class="btn-icon">📖</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Underground developer community</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Community</h4>
+                        <a href="../../index.html#about" class="footer-link">About</a>
+                        <a href="../../index.html#projects" class="footer-link">Projects</a>
+                        <a href="../../index.html#join" class="footer-link">Join</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="https://github.com/mrvi0/auto_jira_bot" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://github.com/mrvi0/auto_jira_bot#documentation" class="footer-link" target="_blank" rel="noopener">Documentation</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Contact</h4>
+                        <a href="../../index.html#contact" class="footer-link">Get in Touch</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Made with ❤️ by the community.
+                </div>
+                <div class="footer-legal">
+                    <a href="../../privacy.html" class="footer-link">Privacy</a>
+                    <a href="../../terms.html" class="footer-link">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104314560', 'ym');
+        ym(104314560, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104314560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>
