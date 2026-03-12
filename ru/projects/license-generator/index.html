@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор лицензий для GitHub — MIT, Apache, GPL онлайн | B4DCATs</title>
+    <meta name="description" content="Бесплатный генератор лицензий для GitHub. Создайте MIT, Apache 2.0, GPL-3.0, BSD для репозитория за секунды. Укажите год и правообладателя, скопируйте в буфер. Без регистрации.">
+    <meta name="keywords" content="генератор лицензий github, генератор лицензии MIT, лицензия для репозитория, открытая лицензия, создать license для github, генератор license файла, GPL лицензия, BSD лицензия">
+    <link rel="canonical" href="https://b4dcats.github.io/ru/projects/license-generator/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Генератор лицензий для GitHub — MIT, Apache, GPL онлайн | B4DCATs">
+    <meta property="og:description" content="Бесплатный генератор лицензий для GitHub. Создайте MIT, Apache 2.0, GPL, BSD. Заполните поля, сгенерируйте, скопируйте. Без регистрации.">
+    <meta property="og:url" content="https://b4dcats.github.io/ru/projects/license-generator/">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="B4DCATs">
+    <link rel="alternate" hreflang="ru" href="https://b4dcats.github.io/ru/projects/license-generator/">
+    <link rel="alternate" hreflang="en" href="https://b4dcats.github.io/projects/license-generator/">
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Генератор лицензий для GitHub",
+      "description": "Бесплатный онлайн-инструмент для создания лицензий открытого ПО (MIT, Apache 2.0, GPL-3.0, BSD) для репозиториев GitHub. Укажите год и правообладателя, скопируйте текст лицензии.",
+      "url": "https://b4dcats.github.io/ru/projects/license-generator/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <style>
+        .license-form-section {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            max-width: 560px;
+            margin: var(--spacing-2xl) auto 0;
+        }
+        .license-form-section label {
+            display: block;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        .license-form-section select,
+        .license-form-section input {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--text-muted);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        .license-form-section select:focus,
+        .license-form-section input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+        .license-form-section select option {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        .generate-btn {
+            width: 100%;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent-primary);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        .generate-btn:hover {
+            background: transparent;
+            color: var(--accent-primary);
+            box-shadow: var(--shadow-glow);
+        }
+        .license-form-section .optional {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        .license-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-lg);
+        }
+        .license-modal-overlay.active {
+            display: flex;
+        }
+        .license-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: var(--radius-lg);
+            max-width: 640px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-glow);
+        }
+        .license-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+        .license-modal-header h3 {
+            margin: 0;
+            font-family: var(--font-mono);
+            color: var(--accent-primary);
+        }
+        .license-modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 var(--spacing-sm);
+            line-height: 1;
+        }
+        .license-modal-close:hover {
+            color: var(--accent-primary);
+        }
+        .license-modal-body {
+            padding: var(--spacing-lg);
+            overflow: auto;
+            flex: 1;
+        }
+        .license-modal-body pre {
+            background: var(--bg-primary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin: 0 0 var(--spacing-lg);
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .license-modal-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+        }
+        .license-copy-btn {
+            flex: 1;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent-primary);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        .license-copy-btn:hover {
+            background: transparent;
+            color: var(--accent-primary);
+        }
+        .license-copy-btn.copied {
+            background: var(--accent-secondary);
+            border-color: var(--accent-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../../index.html" class="logo-link">
+                    <span class="logo-text">B4DCATs</span>
+                    <span class="logo-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../../../index.html#about" class="nav-link">О нас</a>
+                <a href="../../../index.html#projects" class="nav-link">Проекты</a>
+                <a href="../../../index.html#join" class="nav-link">Присоединиться</a>
+                <a href="../../../index.html#contact" class="nav-link">Контакты</a>
+                <div class="language-switcher">
+                    <span class="lang-link active">RU</span>
+                    <span class="lang-separator">|</span>
+                    <a href="../../../projects/license-generator/" class="lang-link">EN</a>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">ВЫПУЩЕН</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Генератор лицензий для GitHub</span>
+                    <span class="title-subtitle">Создание лицензий открытого ПО</span>
+                </h1>
+                <p class="hero-description">
+                    Создайте файл лицензии для репозитория GitHub за секунды.
+                    <span class="highlight">MIT</span>, <span class="highlight">Apache 2.0</span>, <span class="highlight">GPL-3.0</span>, <span class="highlight">BSD</span> — заполните поля, нажмите «Сгенерировать» и скопируйте.
+                </p>
+                <div class="hero-cta">
+                    <a href="#generator" class="btn btn-primary">
+                        <span class="btn-text">Сгенерировать лицензию</span>
+                        <span class="btn-icon">📄</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn close"></span>
+                        <span class="terminal-btn minimize"></span>
+                        <span class="terminal-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">license-gen@tool:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">./license-generator --type MIT</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Год: 2025 | Правообладатель: Ваше имя</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cat LICENSE</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">MIT License</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="output">Copyright (c) 2025 Your Name</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section class="features" id="generator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Генератор лицензий</h2>
+                <p class="section-subtitle">Выберите тип лицензии, заполните поля и нажмите «Сгенерировать». Название и URL проекта необязательны и будут добавлены в начало текста лицензии.</p>
+            </div>
+            <div class="license-form-section">
+                <form id="licenseForm" novalidate>
+                    <label for="licenseType">Тип лицензии</label>
+                    <select id="licenseType" name="licenseType" required>
+                        <optgroup label="Разрешающие (Permissive)">
+                            <option value="MIT">MIT License</option>
+                            <option value="ISC">ISC License</option>
+                            <option value="0BSD">BSD Zero-Clause (0BSD)</option>
+                            <option value="Apache-2.0">Apache License 2.0</option>
+                            <option value="BSL-1.0">Boost Software License 1.0</option>
+                            <option value="BSD-2-Clause">BSD 2-Clause</option>
+                            <option value="BSD-3-Clause">BSD 3-Clause</option>
+                            <option value="NCSA">NCSA (Illinois)</option>
+                            <option value="PostgreSQL">PostgreSQL License</option>
+                        </optgroup>
+                        <optgroup label="Copyleft">
+                            <option value="GPL-2.0">GNU GPL v2.0</option>
+                            <option value="GPL-3.0">GNU GPL v3.0</option>
+                            <option value="LGPL-2.1">GNU LGPL v2.1</option>
+                            <option value="LGPL-3.0">GNU LGPL v3.0</option>
+                            <option value="AGPL-3.0">GNU AGPL v3.0</option>
+                            <option value="MPL-2.0">Mozilla Public License 2.0</option>
+                        </optgroup>
+                        <optgroup label="Общественное достояние / Прочее">
+                            <option value="Unlicense">Unlicense</option>
+                            <option value="WTFPL">WTFPL</option>
+                            <option value="CC0-1.0">Creative Commons CC0 1.0</option>
+                            <option value="CC-BY-4.0">Creative Commons BY 4.0</option>
+                        </optgroup>
+                    </select>
+                    <label for="licenseYear">Год (один год или период)</label>
+                    <input type="text" id="licenseYear" name="year" inputmode="numeric" pattern="[0-9]{4}(-[0-9]{4})?" placeholder="2025 или 2005-2026" maxlength="11" required>
+                    <label for="licenseCopyright">Правообладатель (имя или организация)</label>
+                    <input type="text" id="licenseCopyright" name="copyright" placeholder="Ваше имя или компания" required>
+                    <label for="licenseProjectName">Название проекта <span class="optional">(необязательно)</span></label>
+                    <input type="text" id="licenseProjectName" name="projectName" placeholder="my-repo или Мой проект">
+                    <label for="licenseProjectUrl">URL проекта / Сайт <span class="optional">(необязательно)</span></label>
+                    <input type="url" id="licenseProjectUrl" name="projectUrl" placeholder="https://github.com/user/repo">
+                    <button type="submit" class="generate-btn">Сгенерировать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div class="license-modal-overlay" id="licenseModal" aria-hidden="true" role="dialog" aria-labelledby="licenseModalTitle">
+        <div class="license-modal">
+            <div class="license-modal-header">
+                <h3 id="licenseModalTitle">Сгенерированная лицензия</h3>
+                <button type="button" class="license-modal-close" id="licenseModalClose" aria-label="Закрыть">&times;</button>
+            </div>
+            <div class="license-modal-body">
+                <pre id="licenseOutput"></pre>
+            </div>
+            <div class="license-modal-actions">
+                <button type="button" class="license-copy-btn" id="licenseCopyBtn">Копировать</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">B4DCATs</div>
+                    <p class="footer-description">Подпольное сообщество разработчиков</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Сообщество</h4>
+                        <a href="../../../index.html#about" class="footer-link">О нас</a>
+                        <a href="../../../index.html#projects" class="footer-link">Проекты</a>
+                        <a href="../../../index.html#join" class="footer-link">Присоединиться</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <a href="https://docs.github.com/ru/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/adding-a-license-to-a-repository" class="footer-link" target="_blank" rel="noopener">GitHub: добавление лицензии</a>
+                        <a href="https://github.com/b4dcats" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Контакты</h4>
+                        <a href="../../../index.html#contact" class="footer-link">Связаться</a>
+                        <a href="https://t.me/b4dcats" class="footer-link" target="_blank" rel="noopener">Telegram</a>
+                        <a href="https://discord.gg/MHEpQ5j3tP" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2024 B4DCATs. Сделано с ❤️ сообществом.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="footer-link">Конфиденциальность</a>
+                    <a href="#" class="footer-link">Условия</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../script.js"></script>
+    <script src="../../../projects/license-generator/licenses.js"></script>
+    <script>
+        (function () {
+            var form = document.getElementById('licenseForm');
+            var modal = document.getElementById('licenseModal');
+            var output = document.getElementById('licenseOutput');
+            var copyBtn = document.getElementById('licenseCopyBtn');
+            var closeBtn = document.getElementById('licenseModalClose');
+
+            var yearInput = document.getElementById('licenseYear');
+            if (yearInput && !yearInput.value.trim()) {
+                yearInput.value = new Date().getFullYear().toString();
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var year = document.getElementById('licenseYear').value.trim();
+                var copyright = document.getElementById('licenseCopyright').value.trim();
+                var licenseId = document.getElementById('licenseType').value;
+                var projectName = document.getElementById('licenseProjectName') && document.getElementById('licenseProjectName').value.trim();
+                var projectUrl = document.getElementById('licenseProjectUrl') && document.getElementById('licenseProjectUrl').value.trim();
+
+                if (!year || !/^\d{4}(-\d{4})?$/.test(year)) {
+                    year = new Date().getFullYear().toString();
+                }
+                if (!copyright) {
+                    copyright = 'Your Name';
+                }
+
+                var text = getLicenseText(licenseId, year, copyright, projectName || '', projectUrl || '');
+                if (!text) return;
+                output.textContent = text;
+                modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                copyBtn.textContent = 'Копировать';
+                copyBtn.classList.remove('copied');
+            });
+
+            function closeModal() {
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
+
+            copyBtn.addEventListener('click', function () {
+                var text = output.textContent;
+                if (!text) return;
+                navigator.clipboard.writeText(text).then(function () {
+                    copyBtn.textContent = 'Скопировано!';
+                    copyBtn.classList.add('copied');
+                    setTimeout(function () {
+                        copyBtn.textContent = 'Копировать';
+                        copyBtn.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+        })();
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104314560', 'ym');
+        ym(104314560, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104314560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</body>
+</html>
